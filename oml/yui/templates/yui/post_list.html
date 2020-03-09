@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title%}101.商品マスタ管理画面{% endblock title%}
+{% block content %}
+<p>
+101.商品マスタ管理画面
+</p>
+<hr>
+<div align="center">
+<table border="1">
+<th>--</th><th>発注書No</th><th>依頼日</th><th>部署</th><th>依頼者</th><th>方法</th><th>出荷顧客</th>
+ <th>発注者</ht><th>分類</th><th>商品CD</th><th>商品名</th><th>規格</th><th>入数</th><th>C/S</th>..
+{%for name in name_lists%}
+<tr>
+    <td>
+     <a target="_new" href="{% url 'post_detail' pk=name.pk %}">▶</a></td>
+    </td><td> {{name.Irai_day}}</td>
+    <td>{{name.Up_time}}</td>
+    <td>{{name.Siresaki_cd}}</td>
+    <td>{{name.pk}}</td>
+    </tr>
+{% endfor %}
+</table>
+</div>
+<hr>
+<a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus">新規商品追加</span></a>
+<hr>
+{% endblock content %}

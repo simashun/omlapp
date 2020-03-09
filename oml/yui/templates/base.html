@@ -1,0 +1,16 @@
+{% load static %}
+<html lang="ja">
+<head> 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" >
+<meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+<hr>
+<a href="{% url 'index' %}">リスト<a>
+<hr>
+    {% comment %} <img src="{% static "images/sitelogo.png" %}" alt="Logo" /> {% endcomment %}
+    {% block content %}{% endblock %}
+</body>
+</html>

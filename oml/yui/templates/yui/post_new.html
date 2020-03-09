@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}商品登録{% endblock title%}
+
+{% block content %}
+<h2>商品(post_new)登録</h2>
+    <form method="POST" class="post-form">{% csrf_token %}
+        {{ form.as_p}}
+        <button type="submit">Save</button>
+    <hr>
+    </form>
+{% endblock content %}

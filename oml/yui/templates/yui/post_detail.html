@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title%}発注詳細画面{% endblock title%}
+{% block content %}
+<p>
+発注詳細画面
+</p>
+<table border=1>
+<tr><td>
+{{name2_lists}}
+<br>
+<tr><td>
+{{name2_lists.pk}}
+<br>
+<tr><td>
+{{name2_lists.Shouhin_cd}}
+<br>
+<tr><td>
+{{name2_lists.Siretanka}}
+<br>
+</table>
+<a href="{% url 'post_edit' pk=name2_lists.pk %}">編集</a>
+{% endblock content %}

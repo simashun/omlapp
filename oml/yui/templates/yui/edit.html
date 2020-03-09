@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title%}商品詳細{% endblock title%}
+{% block content %}
+<h2>商品(post_edit)</h2>
+    <form method="POST" class="post-form">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    <hr>
+    {% comment %} 商品名:<input value="{{post}}"> {% endcomment %}
+    <hr>
+    入数:{{post.Irisu}}
+    <hr>
+    規格:{{post.Kikaku}}
+    <hr>
+    </form>
+{% endblock content %}
