@@ -4,7 +4,7 @@ from django.utils import timezone
 from django.views import generic
 from .models import Shouhin,T_oml3
 from django import forms
-from oml.yui.forms import PostForm,MyForm
+from .forms import PostForm,MyForm
 from django.http import HttpResponseRedirect,HttpResponse
 from django.urls import reverse
 # 下記は1.11にないかも?

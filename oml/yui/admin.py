@@ -1,5 +1,5 @@
 from django.contrib import admin
-from oml.yui.models import Shouhin,T_oml3
+from .models import Shouhin,T_oml3
 # Register your models here.
 
 admin.site.register(Shouhin)

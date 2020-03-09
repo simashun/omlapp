@@ -90,7 +90,7 @@ class T_oml3(models.Model):
     Del_tanmatu_nm = models.CharField (max_length=100, verbose_name='削除端末名', null=True)
     Del_tanmatu_tanto_nm = models.CharField (max_length=80, verbose_name='削除端末担当者名', null=True)
     Del_tanmatu_tanto_ip = models.CharField (max_length=1024, verbose_name='削除端末IP', null=True)
-    Del_flg = models.IntegerField (verbose_name='削除フラグ', null=False)
+    Del_flg = models.IntegerField (verbose_name='削除フラグ', null=False, default='0')
     Open_flg = models.IntegerField (verbose_name='公開フラグ', null=False)
     Biken_flg = models.IntegerField (verbose_name='美健フラグ', null=False)
     Cancel_flg = models.IntegerField (verbose_name='キャンセルフラグ', null=False)
