@@ -95,7 +95,7 @@ class T_oml3(models.Model):
     Biken_flg = models.IntegerField (verbose_name='美健フラグ', null=False,default='0')
     Cancel_flg = models.IntegerField (verbose_name='キャンセルフラグ', null=False,default='0')
     def __str__(self):
-        return self.Shouhin_cd
+        # return self.Shouhin_cd
         return self.Hachu_nm
     class Meta:
         verbose_name = '発注管理T'

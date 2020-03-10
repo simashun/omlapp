@@ -1,11 +1,11 @@
 from django import forms
 # from .models import Shouhin,Hachukanri
-from .models import Shouhin
+from .models import Shouhin,T_oml3
 
 class PostForm(forms.ModelForm):
 
     class Meta:
-        model = Shouhin
+        model = T_oml3
         """Shouhinモデルを使う"""
         fields = ('Shouhin_nm', 'Shouhin_cd', 'Kikaku')
 

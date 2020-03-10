@@ -2,21 +2,42 @@
 {% block title%}101.商品マスタ管理画面{% endblock title%}
 {% block content %}
 <p>
-101.商品マスタ管理画面
-</p>
+101.発注管理表
+</P>
 <hr>
 <div align="center">
 <table border="1">
 <th>--</th><th>発注書No</th><th>依頼日</th><th>部署</th><th>依頼者</th><th>方法</th><th>出荷顧客</th>
- <th>発注者</ht><th>分類</th><th>商品CD</th><th>商品名</th><th>規格</th><th>入数</th><th>C/S</th>..
+ <th>発注者</ht><th>分類</th><th>商品CD</th><th>商品名</th><th>規格</th><th>入数</th><th>C/S</th>
+ <th>合計数量</th><th>金額</th><th>仕入先CD</th><th>仕入先名</th><th>発注日</th><th>予定日</th>
+ <th>納品日</th><th>荷受者</th><th>得意先出荷日</th><th>備考</th>
 {%for name in name_lists%}
 <tr>
     <td>
      <a target="_new" href="{% url 'post_detail' pk=name.pk %}">▶</a></td>
-    </td><td> {{name.Irai_day}}</td>
-    <td>{{name.Up_time}}</td>
+    <td> {{name.Hachu_no}}</td>
+    <td> {{name.Irai_day}}</td>
+    <td> {{name.Busyo}}</td>
+    <td> {{name.Irai_nm}}</td>
+    <td> {{name.Houhou}}</td>
+    <td> {{name.Syuka_kokyaku}}</td>
+    <td> {{name.Hachu_nm}}</td>
+    <td>{{name.Bunrui}}</td>
+    <td>{{name.Shouhin.Shouhin_cd}}</td>
+    <td>{{name.Shouhin}}</td>
+    <td>{{name.Shouhin.Kikaku}}</td>
+    <td>{{name.Iri_su}}</td>
+    <td>{{name.Case_su}}</td>
+    <td>{{name.Sum_su}}</td>
+    <td>{{name.Kingaku}}</td>
     <td>{{name.Siresaki_cd}}</td>
-    <td>{{name.pk}}</td>
+    <td>{{name.Siresaki_nm}}</td>
+    <td>{{name.Hachu_day}}</td>
+    <td>{{name.Yotei_day}}</td>
+    <td>{{name.Nohin_day}}</td>
+    <td>{{name.Nohin_tanto_nm}}</td>
+    <td>{{name.Tokuisaki_shuka_day}}</td>
+    <td>{{name.Biko}}</td>
     </tr>
 {% endfor %}
 </table>
