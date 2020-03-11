@@ -24,8 +24,9 @@ from django.shortcuts import redirect
 
 def post_list(request):
     """発注管理画面メイン"""
-    name_lists = T_oml3.objects.filter(
-        Up_time__lte=timezone.now()).order_by('Up_time')
+    # name_lists = T_oml3.objects.filter(
+        # Up_time__lte=timezone.now()).order_by('Up_time')
+    name_lists = T_oml3.objects.order_by('Up_time')
     return render(request, 'yui/post_list.html', {'name_lists': name_lists})
 
 def post_detail(request, pk):
