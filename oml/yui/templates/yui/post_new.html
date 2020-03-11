@@ -2,10 +2,12 @@
 {% block title %}商品登録{% endblock title%}
 
 {% block content %}
+<div align='center'>
 <h2>新規登録</h2>
     <form method="POST" class="post-form">{% csrf_token %}
         {{ form.as_p}}
         <button type="submit">Save</button>
     <hr>
     </form>
+</div>
 {% endblock content %}

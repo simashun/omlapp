@@ -56,7 +56,11 @@ def post_new(request):
     else:
             """フォーム初期状態の場合"""
             # form = PostForm()
-            form = MyForm()
+            initial_dict = {
+                'In_time' : timezone.now,
+                'Irai_day' : timezone.now,
+            }
+            form = MyForm(initial=initial_dict)
     return render(request, 'yui/post_new.html', {'form': form})
 
 def post_edit(request, pk):

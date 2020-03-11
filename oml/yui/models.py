@@ -46,7 +46,7 @@ class T_oml3(models.Model):
     Seq = models.IntegerField(verbose_name='連番',default=models.AutoField)
     In_time = models.DateTimeField(verbose_name='登録年月日',default=timezone.now)
     Hachu_no = models.CharField(max_length=6,verbose_name='発注書No')
-    Irai_day = models.CharField (max_length=10, verbose_name='依頼日')
+    Irai_day = models.DateTimeField(verbose_name='依頼日',default=timezone.now)
     Busyo = models.CharField(max_length=80, verbose_name='部署',null=True, blank=True)
     Irai_nm = models.CharField (max_length=80, verbose_name='依頼者', null=True)
     Houhou = models.CharField (max_length=80, verbose_name='方法', null=True, blank=True)
