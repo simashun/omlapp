@@ -41,10 +41,9 @@ class Shouhin(models.Model):
 #     def __str__(self):
 #         return self.Hachu_no
 
-class T_oml3(models.Model):
+class T_oml2(models.Model):
     """テーブル"""
-    Seq = models.IntegerField(verbose_name='連番',default=models.AutoField)
-    In_time = models.DateTimeField(verbose_name='登録年月日',default=timezone.now)
+    # In_time = models.DateTimeField(verbose_name='登録年月日',default=timezone.now)
     Hachu_no = models.CharField(max_length=6,verbose_name='発注書No')
     Irai_day = models.DateTimeField(verbose_name='依頼日',default=timezone.now)
     Busyo = models.CharField(max_length=80, verbose_name='部署',null=True, blank=True)
@@ -74,14 +73,14 @@ class T_oml3(models.Model):
     In_tanmatu_nm = models.CharField (max_length=100, verbose_name='登録端末名', null=True)
     In_tanmatu_tanto_nm = models.CharField (max_length=80, verbose_name='登録端末担当者名', null=True)
     In_tanmatu_tanto_ip = models.CharField (max_length=1024, verbose_name='登録端末IP', null=True)
-    Up_time = models.DateTimeField (verbose_name='更新年月日', null=True,default=timezone.now())
+    Up_time = models.DateTimeField (verbose_name='更新年月日',default=timezone.now)
     Up_tanto_cd = models.IntegerField (verbose_name='更新担当者コード', null=True)
-    Up_tanto_nm = models.CharField (max_length=80, verbose_name='更新担当者名', null=True)
-    Up_bumon_cd = models.IntegerField (verbose_name='更新部門コード', null=True)
-    Up_bumon_nm = models.CharField (max_length=80, verbose_name='更新部門名', null=True)
-    Up_tanmatu_nm = models.CharField (max_length=100, verbose_name='更新端末名', null=True)
-    Up_tanmatu_tanto_nm = models.CharField (max_length=80, verbose_name='更新端末担当者名', null=True)
-    Up_tanmatu_tanto_ip = models.CharField (max_length=1024, verbose_name='登録端末IP', null=True)
+    Up_tanto_nm = models.CharField (max_length=80, verbose_name='更新担当者名', null=True,blank=True)
+    Up_bumon_cd = models.IntegerField (verbose_name='更新部門コード', null=True,blank=True)
+    Up_bumon_nm = models.CharField (max_length=80, verbose_name='更新部門名', null=True,blank=True)
+    Up_tanmatu_nm = models.CharField (max_length=100, verbose_name='更新端末名', null=True,blank=True)
+    Up_tanmatu_tanto_nm = models.CharField (max_length=80, verbose_name='更新端末担当者名', null=True,blank=True)
+    Up_tanmatu_tanto_ip = models.CharField (max_length=1024, verbose_name='登録端末IP', null=True,blank=True)
     Del_time = models.DateTimeField (verbose_name='削除年月日', null=True,blank=True)
     Del_tanto_cd = models.IntegerField (verbose_name='削除担当者コード', null=True,blank=True)
     Del_tanto_nm = models.CharField (max_length=80, verbose_name='削除担当者名', null=True,blank=True)
@@ -90,10 +89,10 @@ class T_oml3(models.Model):
     Del_tanmatu_nm = models.CharField (max_length=100, verbose_name='削除端末名', null=True,blank=True)
     Del_tanmatu_tanto_nm = models.CharField (max_length=80, verbose_name='削除端末担当者名', null=True,blank=True)
     Del_tanmatu_tanto_ip = models.CharField (max_length=1024, verbose_name='削除端末IP', null=True,blank=True)
-    Del_flg = models.IntegerField (verbose_name='削除フラグ', null=False, default='0')
-    Open_flg = models.IntegerField (verbose_name='公開フラグ', null=False,default='0')
-    Biken_flg = models.IntegerField (verbose_name='美健フラグ', null=False,default='0')
-    Cancel_flg = models.IntegerField (verbose_name='キャンセルフラグ', null=False,default='0')
+    Del_flg = models.IntegerField (verbose_name='削除フラグ', null=False, default='0',blank=True)
+    Open_flg = models.IntegerField (verbose_name='公開フラグ', null=False,default='0',blank=True)
+    Biken_flg = models.IntegerField (verbose_name='美健フラグ', null=False,default='0',blank=True)
+    Cancel_flg = models.IntegerField (verbose_name='キャンセルフラグ', null=False,default='0',blank=True)
     def __str__(self):
         # return self.Shouhin_cd
         return self.Hachu_nm

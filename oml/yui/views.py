@@ -2,7 +2,7 @@
 from django.shortcuts import render,get_object_or_404
 from django.utils import timezone
 from django.views import generic
-from .models import Shouhin,T_oml3
+from .models import Shouhin,T_oml2
 from django import forms
 from .forms import PostForm,MyForm
 from django.http import HttpResponseRedirect,HttpResponse
@@ -24,9 +24,9 @@ from django.shortcuts import redirect
 
 def post_list(request):
     """発注管理画面メイン"""
-    # name_lists = T_oml3.objects.filter(
+    # name_lists = T_oml2.objects.filter(
         # Up_time__lte=timezone.now()).order_by('Up_time')
-    name_lists = T_oml3.objects.order_by('Up_time')
+    name_lists = T_oml2.objects.order_by('Up_time')
     return render(request, 'yui/post_list.html', {'name_lists': name_lists})
 
 def post_detail(request, pk):
@@ -42,8 +42,8 @@ def post_new(request):
     """入力フォームテスト"""
     if request.method == "POST":
         """POSTが定義されている場合"""
-        form = PostForm(request.POST)
-        # form = MyForm(request,POST)
+        # form = PostForm(request.POST)
+        form = MyForm(request.POST)
         if form.is_valid():
 
             """is_valid → 必須チェック、不正値チェック"""
