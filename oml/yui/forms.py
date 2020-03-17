@@ -13,8 +13,8 @@ class PostForm(forms.ModelForm):
 class MyForm(forms.ModelForm):
     """新規登録時のフォーム"""
     Hachu_no = forms.CharField(max_length='6',label='発注書No')
-    In_time = forms.DateTimeField(label='登録年月日')
-    Irai_day = forms.CharField (max_length=10,label='依頼日')
+    In_time = forms.DateField(label='登録年月日')
+    Irai_day = forms.DateField (label='依頼日')
     Busyo = forms.CharField(max_length=80,label='部署')
     Irai_nm = forms.CharField (max_length=80, label='依頼者')
     Houhou = forms.CharField (max_length=80, label='方法' )

@@ -43,16 +43,17 @@ class Shouhin(models.Model):
 
 class T_oml2(models.Model):
     """テーブル"""
-    # In_time = models.DateTimeField(verbose_name='登録年月日',default=timezone.now)
+    In_time = models.DateTimeField(verbose_name='登録年月日')
     Hachu_no = models.CharField(max_length=6,verbose_name='発注書No')
-    Irai_day = models.DateTimeField(verbose_name='依頼日',default=timezone.now)
+    Irai_day = models.DateTimeField(verbose_name='依頼日')
     Busyo = models.CharField(max_length=80, verbose_name='部署',null=True, blank=True)
     Irai_nm = models.CharField (max_length=80, verbose_name='依頼者', null=True)
     Houhou = models.CharField (max_length=80, verbose_name='方法', null=True, blank=True)
     Syuka_kokyaku = models.CharField (max_length=200, verbose_name='出荷顧客', null=True, blank=True)
     Hachu_nm = models.CharField (max_length=80, verbose_name='発注者')
     Bunrui = models.CharField (max_length=80, verbose_name='分類')
-    Shouhin = models.ForeignKey(Shouhin, on_delete=models.PROTECT)
+    # Shouhin = models.ForeignKey(Shouhin, on_delete=models.PROTECT)
+    Shouhin_cd = models.IntegerField(verbose_name='商品CD')
     Iri_su = models.IntegerField (verbose_name='入数', null=True, blank=True)
     Case_su = models.IntegerField (verbose_name='C/S', null=True,blank=True)
     Sum_su = models.IntegerField (verbose_name='合計数量')
