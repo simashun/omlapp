@@ -31,7 +31,7 @@ def post_list(request):
 
 def post_detail(request, pk):
     """発注情報詳細画面"""
-    name2_lists = get_object_or_404(Shouhin, pk=pk)
+    name2_lists = get_object_or_404(T_oml2, pk=pk)
     return render(request, 'yui/post_detail.html', {'name2_lists': name2_lists})
 
 #def hachu_kanri(request):
@@ -65,7 +65,7 @@ def post_new(request):
     return render(request, 'yui/post_new.html', {'form': form})
 
 def post_edit(request, pk):
-    post = get_object_or_404(Shouhin, pk=pk)
+    post = get_object_or_404(T_oml2, pk=pk)
     if request.method == "POST":
         form = PostForm(request.POST, instance=post)
         if form.is_valid():
