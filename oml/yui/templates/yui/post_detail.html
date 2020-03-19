@@ -4,19 +4,36 @@
 <p>
 発注詳細画面
 </p>
-<table border=1>
-<tr><td>
-{{name2_lists}}
-<br>
-<tr><td>
-{{name2_lists.pk}}
-<br>
-<tr><td>
-{{name2_lists.Shouhin_cd}}
-<br>
-<tr><td>
-{{name2_lists.Siretanka}}
-<br>
+<table border="1">
+<th>--</th><th>発注書No</th><th>依頼日</th><th>部署</th><th>依頼者</th><th>方法</th><th>出荷顧客</th>
+ <th>発注者</ht><th>分類</th><th>商品CD</th><th>商品名</th><th>規格</th><th>入数</th><th>C/S</th>
+ <th>合計数量</th><th>金額</th><th>仕入先CD</th><th>仕入先名</th><th>発注日</th><th>予定日</th>
+ <th>納品日</th><th>荷受者</th><th>得意先出荷日</th><th>備考</th>
+
+<tr>    <td> {{name2_lists.Hachu_no}}</td>
+</tr><tr>    <td> {{name2_lists.Irai_day}}</td>
+</tr><tr>    <td> {{name2_lists.Busyo}}</td>
+</tr><tr>    <td> {{name2_lists.Irai_nm}}</td>
+</tr><tr>    <td> {{name2_lists.Houhou}}</td>
+</tr><tr>    <td> {{name2_lists.Syuka_kokyaku}}</td>
+</tr><tr>    <td> {{name2_lists.Hachu_nm}}</td>
+</tr><tr>    <td>{{name2_lists.Bunrui}}</td>
+</tr><tr>    <td>{{name2_lists.Shouhin_cd}}</td>
+</tr><tr>    <td>{{name2_lists.Shouhin}}</td>
+</tr><tr>    <td>{{name2_lists.Shouhin.Kikaku}}</td>
+</tr><tr>    <td>{{name2_lists.Iri_su}}</td>
+</tr><tr>    <td>{{name2_lists.Case_su}}</td>
+</tr><tr>    <td>{{name2_lists.Sum_su}}</td>
+</tr><tr>    <td>{{name2_lists.Kingaku}}</td>
+</tr><tr>    <td>{{name2_lists.Siresaki_cd}}</td>
+</tr><tr>    <td>{{name2_lists.Siresaki_nm}}</td>
+</tr><tr>    <td>{{name2_lists.Hachu_day}}</td>
+</tr><tr>    <td>{{name2_lists.Yotei_day}}</td>
+</tr><tr>    <td>{{name2_lists.Nohin_day}}</td>
+</tr><tr>    <td>{{name2_lists.Nohin_tanto_nm}}</td>
+</tr><tr>    <td>{{name2_lists.Tokuisaki_shuka_day}}</td>
+</tr><tr>    <td>{{name2_lists.Biko}}</td>
+    </tr>
 </table>
 <a href="{% url 'post_edit' pk=name2_lists.pk %}">編集</a>
 {% endblock content %}
