@@ -7,7 +7,6 @@ from django.http import HttpResponseRedirect,HttpResponse,JsonResponse
 from django.urls import reverse
 from .models import Shouhin,T_oml2
 from .forms import PostForm,MyForm
-# 下記は1.11にないかも?
 from django.shortcuts import redirect
 
 # Create your views here.
@@ -24,8 +23,6 @@ from django.shortcuts import redirect
 
 def post_list(request):
     """発注管理画面メイン"""
-    # name_lists = T_oml2.objects.filter(
-        # Up_time__lte=timezone.now()).order_by('Up_time')
     name_lists = T_oml2.objects.order_by('Up_time')
     return render(request, 'yui/post_list.html', {'name_lists': name_lists})
 
@@ -33,10 +30,6 @@ def post_detail(request, pk):
     """発注情報詳細画面"""
     name2_lists = get_object_or_404(T_oml2, pk=pk)
     return render(request, 'yui/post_detail.html', {'name2_lists': name2_lists})
-
-#def hachu_kanri(request):
-#    """テスト"""
-#    return render(request, 'yui/hachu_kanri.html')
 
 def post_new(request):
     """入力フォームテスト"""
@@ -79,18 +72,3 @@ def post_edit(request, pk):
         # form = PostForm(instance=post)
         form = MyForm(instance=post)
     return render(request, 'yui/edit.html', {'form': form})
-
-def validate_username(request):
-    shouhin_q = request.GET.get('Shouhin_cd', None)
-    # Ssername = request.GET.get('first_name', None)
-    #                           Shouhin_cd
-    data = {
-        'is_used': Shouhin.objects.filter(Shouhin_cd__iexact=shouhin_q).exists()
-        #                               Shouhin_cd.get(Shouhin_nm)
-    }
-    data['error_message'] = shouhin_q
-    if data['is_used']:
-        # data['error_message'] = 'このユーザー名は既に使用されています'
-        shouhin_qnm = Shouhin.objects.get(Shouhin_cd__iexact=shouhin_q).Shouhin_nm
-        data['error_message'] = shouhin_qnm
-    return JsonResponse(data)
