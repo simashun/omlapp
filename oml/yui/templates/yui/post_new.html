@@ -1,6 +1,22 @@
 {% extends 'base.html' %}
 {% block title %}商品登録(post_new){% endblock title%}
-
+{% block javascript %}
+<script>
+    $("#id_Shouhin_cd").change(function () {
+        var form = $(this).closest("form");
+        $.ajax({
+            url: '/ajax/validate_username/',
+            data: form.serialize(),
+            dataType: 'json',
+            success: function (data) {
+                if (data.is_used) {
+                    alert(data.error_message);
+                }
+            }
+        });
+    });
+</script>
+{% endblock %}
 {% block content %}
 <div align='center'>
 <h2>新規登録</h2>

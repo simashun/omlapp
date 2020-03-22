@@ -11,7 +11,7 @@ class Shouhin(models.Model):
     Kikaku = models.CharField(max_length=100,null=True,verbose_name='規格',blank=True)
     Siresaki_cd = models.IntegerField(null=False)
     Siresaki_nm = models.CharField(max_length=100,null=True,blank=True)
-    Irisu = models.CharField(max_length=100,null=True)
+    Irisu = models.CharField(max_length=100,null=True,verbose_name='入数')
     Siretanka = models.FloatField(max_length=20,default=True)
     # created_date = models.DateTimeField(default=timezone.now)
     def publish(self):

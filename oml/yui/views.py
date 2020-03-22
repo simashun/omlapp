@@ -1,12 +1,12 @@
 """yui.views """
-from django.shortcuts import render,get_object_or_404
+from django import forms
 from django.utils import timezone
 from django.views import generic
-from .models import Shouhin,T_oml2
-from django import forms
-from .forms import PostForm,MyForm
-from django.http import HttpResponseRedirect,HttpResponse
+from django.shortcuts import render,get_object_or_404
+from django.http import HttpResponseRedirect,HttpResponse,JsonResponse
 from django.urls import reverse
+from .models import Shouhin,T_oml2
+from .forms import PostForm,MyForm
 # 下記は1.11にないかも?
 from django.shortcuts import redirect
 
@@ -67,7 +67,8 @@ def post_new(request):
 def post_edit(request, pk):
     post = get_object_or_404(T_oml2, pk=pk)
     if request.method == "POST":
-        form = PostForm(request.POST, instance=post)
+        form = MyForm(request.POST, instance=post)
+        # form = PostForm(request.POST, instance=post)
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
@@ -75,5 +76,21 @@ def post_edit(request, pk):
             post.save()
             return redirect('post_detail', pk=post.pk)
     else:
-        form = PostForm(instance=post)
+        # form = PostForm(instance=post)
+        form = MyForm(instance=post)
     return render(request, 'yui/edit.html', {'form': form})
+
+def validate_username(request):
+    shouhin_q = request.GET.get('Shouhin_cd', None)
+    # Ssername = request.GET.get('first_name', None)
+    #                           Shouhin_cd
+    data = {
+        'is_used': Shouhin.objects.filter(Shouhin_cd__iexact=shouhin_q).exists()
+        #                               Shouhin_cd.get(Shouhin_nm)
+    }
+    data['error_message'] = shouhin_q
+    if data['is_used']:
+        # data['error_message'] = 'このユーザー名は既に使用されています'
+        shouhin_qnm = Shouhin.objects.get(Shouhin_cd__iexact=shouhin_q).Shouhin_nm
+        data['error_message'] = shouhin_qnm
+    return JsonResponse(data)
