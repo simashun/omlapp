@@ -52,7 +52,7 @@ class T_oml2(models.Model):
     Syuka_kokyaku = models.CharField (max_length=200, verbose_name='出荷顧客', null=True, blank=True)
     Hachu_nm = models.CharField (max_length=80, verbose_name='発注者')
     Bunrui = models.CharField (max_length=80, verbose_name='分類')
-    # Shouhin = models.ForeignKey(Shouhin, on_delete=models.PROTECT)
+    Shouhin_nm1 = models.ForeignKey(Shouhin, on_delete=models.PROTECT)
     Shouhin_cd = models.IntegerField(verbose_name='商品CD')
     Iri_su = models.IntegerField (verbose_name='入数', null=True, blank=True)
     Case_su = models.IntegerField (verbose_name='C/S', null=True,blank=True)
