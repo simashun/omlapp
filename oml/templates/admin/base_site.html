@@ -1,9 +1,27 @@
 {% extends "admin/base.html" %}
 
-{% block title %}{{ title }} | 発注管理表{% endblock %}
+{% block title %}発注管理表{% endblock %}
 
 {% block branding %}
-<h1 id="site-name"><a href="{% url 'admin:index' %}">{{ site_header|default:_('Django administration') }}</a></h1>
+<h1 id="site-name"><a href="{% url 'admin:index' %}">発注管理表</a></h1>
 {% endblock %}
 
 {% block nav-global %}{% endblock %}
+{% block javascript %}
+<script>
+    $("#id_Shouhin_cd").change(function () {
+        var form = $(this).closest("form");
+        $.ajax({
+            url: '/ajax/validate_username/',
+            data: form.serialize(),
+            dataType: 'json',
+            success: function (data) {
+                if (data.is_used) {
+//                    alert(data.error_message);
+                    $("#id_Shouhin_nm1").val(data.error_message);
+                }
+            }
+        });
+    });
+</script>
+{% endblock %}
