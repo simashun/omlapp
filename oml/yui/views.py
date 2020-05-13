@@ -38,7 +38,6 @@ def post_new(request):
         # form = PostForm(request.POST)
         form = MyForm(request.POST)
         if form.is_valid():
-
             """is_valid → 必須チェック、不正値チェック"""
             post = form.save(commit=False)
             """すぐには保存しない"""

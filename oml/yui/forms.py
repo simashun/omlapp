@@ -23,7 +23,7 @@ class MyForm(forms.ModelForm):
     Bunrui = forms.CharField (max_length=80, label='分類')
     Kikaku = forms.CharField(max_length=20,label="規格")
     Shouhin_cd = forms.IntegerField(label="商品CD")
-    Shouhin_nm1 = forms.CharField(label="商品名")
+    # Shouhin_nm1 = forms.CharField(label="商品名")
     Iri_su = forms.IntegerField (label='入数')
     Case_su = forms.IntegerField (label='C/S')
     Sum_su = forms.IntegerField (label='合計数量')
@@ -39,4 +39,5 @@ class MyForm(forms.ModelForm):
 
     class Meta:
         model = T_oml2
-        fields = ('Hachu_no','In_time','Irai_day','Busyo','Irai_nm','Houhou','Syuka_kokyaku','Hachu_nm','Bunrui','Kikaku','Shouhin_cd','Shouhin_nm1','Iri_su','Case_su','Sum_su','Kingaku','Siresaki_cd','Hachu_day','Yotei_day','Nohin_day','Nohin_tanto_nm','Tokuisaki_shuka_day','Biko')
+        # fields = ('Hachu_no','In_time','Irai_day','Busyo','Irai_nm','Houhou','Syuka_kokyaku','Hachu_nm','Bunrui','Kikaku','Shouhin_cd','Shouhin_nm1','Iri_su','Case_su','Sum_su','Kingaku','Siresaki_cd','Hachu_day','Yotei_day','Nohin_day','Nohin_tanto_nm','Tokuisaki_shuka_day','Biko')
+        fields = ('Hachu_no','In_time','Irai_day','Busyo','Irai_nm','Houhou','Syuka_kokyaku','Hachu_nm','Bunrui','Kikaku','Shouhin_cd', 'Iri_su','Case_su','Sum_su','Kingaku','Siresaki_cd','Hachu_day','Yotei_day','Nohin_day','Nohin_tanto_nm','Tokuisaki_shuka_day','Biko')

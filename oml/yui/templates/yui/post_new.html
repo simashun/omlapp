@@ -12,6 +12,8 @@
                 if (data.is_used) {
 //                    alert(data.error_message);
                     $("#id_Shouhin_nm1").val(data.error_message);
+                }else{
+                    $("#id_Shouhin_nm1").val("未登録の商品CDです");
                 }
             }
         });
@@ -19,10 +21,34 @@
 </script>
 {% endblock %}
 {% block content %}
-<div align='center'>
+<div>
 <h2>新規登録</h2>
     <form method="POST" class="post-form">{% csrf_token %}
-        {{ form.as_p}}
+        {% comment %} {{ form.as_p}} {% endcomment %}
+        <p><label for="id_Hachu_no">発注書No:</label> <input type="text" name="Hachu_no" maxlength="6" required id="id_Hachu_no" /></p>
+        <p><label for="id_In_time">登録年月日:</label> <input type="text" name="In_time" value="2020-05-12" required id="id_In_time" /></p>
+        <p><label for="id_Irai_day">依頼日:</label> <input type="text" name="Irai_day" value="2020-05-12" required id="id_Irai_day" /></p>
+        <p><label for="id_Busyo">部署:</label> <input type="text" name="Busyo" maxlength="80" required id="id_Busyo" /></p>
+        <p><label for="id_Irai_nm">依頼者:</label> <input type="text" name="Irai_nm" maxlength="80" required id="id_Irai_nm" /></p>
+        <p><label for="id_Houhou">方法:</label> <input type="text" name="Houhou" maxlength="80" required id="id_Houhou" /></p>
+        <p><label for="id_Syuka_kokyaku">出荷顧客:</label> <input type="text" name="Syuka_kokyaku" maxlength="200" required id="id_Syuka_kokyaku" /></p>
+        <p><label for="id_Hachu_nm">発注者:</label> <input type="text" name="Hachu_nm" maxlength="80" required id="id_Hachu_nm" /></p>
+        <p><label for="id_Bunrui">分類:</label> <input type="text" name="Bunrui" maxlength="80" required id="id_Bunrui" /></p>
+        <p><label for="id_Kikaku">規格:</label> <input type="text" name="Kikaku" maxlength="20" required id="id_Kikaku" /></p>
+        <p><label for="id_Shouhin_cd">商品CD:</label> <input type="number" name="Shouhin_cd" required id="id_Shouhin_cd" /><input form="moge" readonly id="id_Shouhin_nm1"></p>
+        <p><label for="id_Iri_su">入数:</label> <input type="number" name="Iri_su" required id="id_Iri_su" /></p>
+        <p><label for="id_Case_su">C/S:</label> <input type="number" name="Case_su" required id="id_Case_su" /></p>
+        <p><label for="id_Sum_su">合計数量:</label> <input type="number" name="Sum_su" required id="id_Sum_su" /></p>
+        <p><label for="id_Kingaku">金額:</label> <input type="number" name="Kingaku" required id="id_Kingaku" /></p>
+        <p><label for="id_Siresaki_cd">仕入先CD:</label> <input type="number" name="Siresaki_cd" required id="id_Siresaki_cd" /></p>
+        <p><label for="id_Hachu_day">発注日:</label> <input type="text" name="Hachu_day" maxlength="10" required id="id_Hachu_day" /></p>
+        <p><label for="id_Yotei_day">予定日:</label> <input type="text" name="Yotei_day" maxlength="100" required id="id_Yotei_day" /></p>
+        <p><label for="id_Nohin_day">納品日:</label> <input type="text" name="Nohin_day" maxlength="10" required id="id_Nohin_day" /></p>
+        <p><label for="id_Nohin_tanto_nm">荷受者:</label> <input type="text" name="Nohin_tanto_nm" maxlength="80" required id="id_Nohin_tanto_nm" /></p>
+        <p><label for="id_Tokuisaki_shuka_day">得意先出荷日:</label> <input type="text" name="Tokuisaki_shuka_day" maxlength="10" required id="id_Tokuisaki_shuka_day" /></p>
+        <p><label for="id_Biko">備考:</label> <input type="text" name="Biko" maxlength="10000" required id="id_Biko" /></p>
+        <p><label for="id_Siresaki_nm">仕入先名:</label> <input type="text" name="Siresaki_nm" maxlength="80" required id="id_Siresaki_nm" /></p>
+             </td></tr>
         <button type="submit">Save</button>
     <hr>
     </form>
