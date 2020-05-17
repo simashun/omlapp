@@ -5,7 +5,7 @@ from django.utils import timezone
 
 
 class Shouhin(models.Model):
-    """商品情報オブジェクト"""
+    """商品情報クラス"""
     Shouhin_cd = models.IntegerField(null=False,verbose_name='商品コード')
     Shouhin_nm = models.CharField(max_length=256,verbose_name='商品名')
     Kikaku = models.CharField(max_length=100,null=True,verbose_name='規格',blank=True)
@@ -25,8 +25,11 @@ class Shouhin(models.Model):
         verbose_name = '商品マスタ'
         verbose_name_plural = '商品マスタClass'
 
-# class Hachukanri(models.Model):
-#     """発注管理用オブジェクト"""
+#class Hachukanri(models.Model):
+#    """発注管理用オブジェクト"""
+#    slist = models.ForeignKey(Shouhin, on_delete=models.CASCADE)
+#    omllist = models.ForeignKey(T_oml2, on_delete=models.CASCADE)
+
     # Hachu_no = models.IntegerField(verbose_name="発注書No",null=False)
 #     Iraibi = models.DateTimeField(verbose_name="依頼日")
 #     Busyo = models.CharField(verbose_name="部署",max_length=20)
@@ -42,7 +45,7 @@ class Shouhin(models.Model):
 #         return self.Hachu_no
 
 class T_oml2(models.Model):
-    """テーブル"""
+    """発注情報クラス"""
     In_time = models.DateTimeField(verbose_name='登録年月日')
     Hachu_no = models.CharField(max_length=6,verbose_name='発注書No')
     Irai_day = models.DateTimeField(verbose_name='依頼日')
@@ -52,7 +55,7 @@ class T_oml2(models.Model):
     Syuka_kokyaku = models.CharField (max_length=200, verbose_name='出荷顧客', null=True, blank=True)
     Hachu_nm = models.CharField (max_length=80, verbose_name='発注者')
     Bunrui = models.CharField (max_length=80, verbose_name='分類')
-    # Shouhin_nm1 = models.ForeignKey(Shouhin, on_delete=models.PROTECT)
+    Shouhin_nm1 = models.ForeignKey(Shouhin, null=True, blank=True, on_delete=models.PROTECT)
     Shouhin_cd = models.IntegerField(verbose_name='商品CD')
     Iri_su = models.IntegerField (verbose_name='入数', null=True, blank=True)
     Case_su = models.IntegerField (verbose_name='C/S', null=True,blank=True)
@@ -100,3 +103,8 @@ class T_oml2(models.Model):
     class Meta:
         verbose_name = '発注管理T'
         verbose_name_plural = '発注管理Class'
+
+class Hachukanri(models.Model):
+    """発注管理用オブジェクト"""
+    slist = models.ForeignKey(Shouhin, on_delete=models.CASCADE)
+    omllist = models.ForeignKey(T_oml2, on_delete=models.CASCADE)
