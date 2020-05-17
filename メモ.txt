@@ -1,8 +1,0 @@
-2020.5.17(日) 18:09
-外部キー(T_oml2.Shouhin_nm)をhttp://localhost:8000/yui/で表示できず、
-苦戦中でいったん断念する。
-
-できたこと:
-・新規登録画面(views.post_new,localhost:8000/yui/から新規登録のリンク)で
-動的jqueryで商品CDからShouhinテーブル内商品名を取得することができている。
-・saveもできている(foreignkeyをnull,blank許容したら可能となった)
