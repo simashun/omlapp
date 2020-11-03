@@ -1,6 +1,7 @@
 """yui.models.py"""
 from django.db import models
 from django.utils import timezone
+from django.contrib.auth.models import AbstractUser
 # Create your models here.
 
 
@@ -13,6 +14,7 @@ class Shouhin(models.Model):
     Siresaki_nm = models.CharField(max_length=100,null=True,blank=True)
     Irisu = models.CharField(max_length=100,null=True,verbose_name='入数')
     Siretanka = models.FloatField(max_length=20,default=True)
+    t_oml2 = models.ForeignKey('yui.T_oml2', on_delete=models.CASCADE, related_name='shouhins')
     # created_date = models.DateTimeField(default=timezone.now)
     def publish(self):
         """商品情報登録メソッド"""
@@ -55,7 +57,7 @@ class T_oml2(models.Model):
     Syuka_kokyaku = models.CharField (max_length=200, verbose_name='出荷顧客', null=True, blank=True)
     Hachu_nm = models.CharField (max_length=80, verbose_name='発注者')
     Bunrui = models.CharField (max_length=80, verbose_name='分類')
-    Shouhin_nm1 = models.ForeignKey(Shouhin, null=True, blank=True, on_delete=models.PROTECT)
+    # Shouhin_nm1 = models.ForeignKey(Shouhin, null=True, blank=True, on_delete=models.PROTECT)
     Shouhin_cd = models.IntegerField(verbose_name='商品CD')
     Iri_su = models.IntegerField (verbose_name='入数', null=True, blank=True)
     Case_su = models.IntegerField (verbose_name='C/S', null=True,blank=True)
@@ -104,7 +106,7 @@ class T_oml2(models.Model):
         verbose_name = '発注管理T'
         verbose_name_plural = '発注管理Class'
 
-class Hachukanri(models.Model):
+# class Hachukanri(models.Model):
     """発注管理用オブジェクト"""
-    slist = models.ForeignKey(Shouhin, on_delete=models.CASCADE)
-    omllist = models.ForeignKey(T_oml2, on_delete=models.CASCADE)
+    # slist = models.ForeignKey(Shouhin, on_delete=models.CASCADE)
+    # omllist = models.ForeignKey(T_oml2, on_delete=models.CASCADE)

@@ -23,8 +23,13 @@ from django.shortcuts import redirect
 
 def post_list(request):
     """発注管理画面メイン"""
-    name_lists = T_oml2.objects.order_by('Up_time')
-    return render(request, 'yui/post_list.html', {'name_lists': name_lists})
+    t_oml2s = T_oml2.objects.order_by('Up_time')
+    # a = t_oml2s.get(pk=1)
+    # a = t_oml2s.get()
+    # b = a.shouhins.get()
+    # b = t_oml2s.shouhins.get(Shouhin_cd='Shouhin_cd')
+    #t_oml2s = get_object_or_404(T_oml2, pk=pk)
+    return render(request, 'yui/post_list.html', {'t_oml2s': t_oml2s })
 
 def post_detail(request, pk):
     """発注情報詳細画面"""

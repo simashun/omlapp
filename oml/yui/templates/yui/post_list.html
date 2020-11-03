@@ -11,33 +11,35 @@
  <th>発注者</ht><th>分類</th><th>商品CD</th><th>商品名</th><th>規格</th><th>入数</th><th>C/S</th>
  <th>合計数量</th><th>金額</th><th>仕入先CD</th><th>仕入先名</th><th>発注日</th><th>予定日</th>
  <th>納品日</th><th>荷受者</th><th>得意先出荷日</th><th>備考</th>
-{%for name in name_lists%}
+{%for t_oml2 in t_oml2s %}
+
 <tr>
     <td>
-     <a target="_new" href="{% url 'post_detail' pk=name.pk %}">▶</a></td>
-    <td> {{name.Hachu_no}}</td>
-    <td> {{name.Irai_day}}</td>
-    <td> {{name.Busyo}}</td>
-    <td> {{name.Irai_nm}}</td>
-    <td> {{name.Houhou}}</td>
-    <td> {{name.Syuka_kokyaku}}</td>
-    <td> {{name.Hachu_nm}}</td>
-    <td>{{name.Bunrui}}</td>
-    <td>{{name.Shouhin_cd}}</td>
-    <td>{{name.Shouhin}}</td>
-    <td>{{name.Shouhin.Kikaku}}</td>
-    <td>{{name.Iri_su}}</td>
-    <td>{{name.Case_su}}</td>
-    <td>{{name.Sum_su}}</td>
-    <td>{{name.Kingaku}}</td>
-    <td>{{name.Siresaki_cd}}</td>
-    <td>{{name.Siresaki_nm}}</td>
-    <td>{{name.Hachu_day}}</td>
-    <td>{{name.Yotei_day}}</td>
-    <td>{{name.Nohin_day}}</td>
-    <td>{{name.Nohin_tanto_nm}}</td>
-    <td>{{name.Tokuisaki_shuka_day}}</td>
-    <td>{{name.Biko}}</td>
+     <a target="_new" href="{% url 'post_detail' pk=t_oml2.pk %}">▶</a></td>
+    <td> {{t_oml2.Hachu_no}}</td>
+    <td> {{t_oml2.Irai_day}}</td>
+    <td> {{t_oml2.Busyo}}</td>
+    <td> {{t_oml2.Irai_nm}}</td>
+    <td> {{t_oml2.Houhou}}</td>
+    <td> {{t_oml2.Syuka_kokyaku}}</td>
+    <td> {{t_oml2.Hachu_nm}}</td>
+    <td>{{t_oml2.Bunrui}}</td>
+    <td>{{t_oml2.Shouhin_cd}}</td>
+    {% comment %} <td>bで表示{{b}}ここ</td> {% endcomment %}
+    <td>表示不能{{t_oml2.shouhins.all}}ここ</td>
+    <td>{{t_oml2}}</td>
+    <td>{{t_oml2.Iri_su}}</td>
+    <td>{{t_oml2.Case_su}}</td>
+    <td>{{t_oml2.Sum_su}}</td>
+    <td>{{t_oml2.Kingaku}}</td>
+    <td>{{t_oml2.Siresaki_cd}}</td>
+    <td>{{t_oml2.Siresaki_nm}}</td>
+    <td>{{t_oml2.Hachu_day}}</td>
+    <td>{{t_oml2.Yotei_day}}</td>
+    <td>{{t_oml2.Nohin_day}}</td>
+    <td>{{t_oml2.Nohin_tanto_nm}}</td>
+    <td>{{t_oml2.Tokuisaki_shuka_day}}</td>
+    <td>{{t_oml2.Biko}}</td>
     </tr>
 {% endfor %}
 </table>
